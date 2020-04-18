@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>disciplineInfo</title>
+</head>
+<body>
+    {% for prog in education_programs %}
+        Номер программы: {{prog.id}} <br>
+        Название программы: {{prog.name}} <br>
+        Дисциплина: {{prog.discipline}} <br>
+            {% for yea,kolvo in prog.year.items %}
+                Год обучения: {{yea}}<br>
+                Количествово групп: {{kolvo|length}}<br>
+            {% endfor %}
+        <br><br>
+    {% endfor %}
+<p style="text-align: center;"><img src="http://www.ifmo.ru/file/news/4246/itmo_small_white_rus.jpg" width="550" height="400"></p>
+</body>
+</html>

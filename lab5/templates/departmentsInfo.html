@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>departmentsInfo</title>
+    <style>
+        ul, ol {
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+{% for cathedr in cathedrs %}
+ID: {{cathedr.id}}<br>
+Кафедра: {{cathedr.name}}<br>
+Заведующий кафедры: {{cathedr.head.name}} ({{cathedr.head.t_number}})<br>
+Преподаватели:
+<ol>
+    {% for teacher in cathedr.professors %}
+    <li>{{teacher.name}} ({{teacher.t_number}}, {{teacher.position}})</li>
+    {% endfor %}
+</ol>
+Образовательные программы:
+<ul>
+    {% for ed_prog in cathedr.education_programs %}
+    <li> Номер программы: {{ed_prog.id}} ({{ed_prog.name}}, {{ed_prog.discipline}})</li>
+    {% endfor %}
+ </ul>
+<br><br>
+{% endfor %}
+<p style="text-align: center;"><img src="http://www.ifmo.ru/file/news/4246/itmo_small_white_rus.jpg" width="550" height="400"></p>
+</body>
+</html>

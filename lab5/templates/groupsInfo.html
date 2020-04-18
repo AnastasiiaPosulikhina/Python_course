@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>groupsInfo</title>
+</head>
+<body>
+<table style="width:100%;border-collapse:collapse" border="1">
+    <tr>
+        <td>Группа</td>
+        <td>Табельный номер</td>
+        <td>ФИО</td>
+        <td>Стипендия</td>
+    </tr>
+    {% for group in groups %}
+        {% for student in group.students %}
+            <tr>
+                <td>{{group.name}}</td>
+                <td>{{student.t_number}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.scholarship}}</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</table>
+<p style="text-align: center;"><img src="http://www.ifmo.ru/file/news/4246/itmo_small_white_rus.jpg" width="550" height="400"></p>
+</body>
+</html>
